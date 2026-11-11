@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Skillbird: learn any subject, the right way</title>
+<meta name="description" content="Skillbird is a study app for students: courses on school subjects, flashcards that time themselves, and test plans built on real learning science. Join the early-access list.">
+<meta property="og:title" content="Skillbird: learn any subject, the right way">
+<meta property="og:description" content="Courses, flashcards and test plans built on real learning science. Coming soon to iPhone. Join the early-access list.">
+<meta property="og:image" content="img/share.jpg">
+<meta name="theme-color" content="#0B1020">
+<link rel="icon" href="img/favicon.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0B1020; --card: #151C2E; --line: #273150; --ink: #F4F6FB; --text2: #A9B3C9;
+    --sun: #FFC83D; --sky: #4C9AFF; --coral: #FF6B57; --green: #22B573; --onsun: #14213D;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: Inter, system-ui, -apple-system, sans-serif; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+  header { display: flex; align-items: center; gap: 10px; padding: 18px 0; }
+  header img { width: 40px; height: 40px; border-radius: 12px; }
+  header b { font-family: Poppins, sans-serif; font-size: 22px; font-weight: 800; }
+  header .soon { margin-left: auto; font-size: 13px; font-weight: 700; color: var(--onsun); background: var(--sun); padding: 6px 12px; border-radius: 99px; }
+
+  .hero { display: grid; grid-template-columns: 1.05fr .95fr; gap: 40px; align-items: center; padding: 40px 0 70px; }
+  h1 { font-family: Poppins, sans-serif; font-size: clamp(40px, 6.4vw, 68px); line-height: 1.04; letter-spacing: -1.2px; margin: 0 0 18px; }
+  h1 span { color: var(--sun); }
+  .lead { font-size: clamp(17px, 2.1vw, 20px); color: var(--text2); margin: 0 0 28px; max-width: 520px; }
+
+  form { background: var(--card); border: 1px solid var(--line); border-radius: 24px; padding: 20px; max-width: 520px; }
+  form label { display: block; font-weight: 700; font-size: 15px; margin-bottom: 8px; }
+  .row { display: flex; gap: 10px; flex-wrap: wrap; }
+  input[type=email], select { flex: 1 1 220px; font: inherit; font-size: 16px; color: var(--ink); background: var(--bg); border: 1.5px solid var(--line); border-radius: 14px; padding: 14px 16px; min-width: 0; }
+  input[type=email]:focus, select:focus { outline: none; border-color: var(--sky); }
+  select { flex: 1 1 100%; margin-top: 10px; appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--text2) 50%), linear-gradient(135deg, var(--text2) 50%, transparent 50%); background-position: calc(100% - 22px) 52%, calc(100% - 16px) 52%; background-size: 6px 6px; background-repeat: no-repeat; }
+  button { font: inherit; font-family: Poppins, sans-serif; font-weight: 800; font-size: 17px; color: var(--onsun); background: var(--sun); border: 0; border-radius: 14px; padding: 14px 22px; cursor: pointer; flex: 0 0 auto; }
+  button:hover { filter: brightness(1.05); }
+  .fine { font-size: 13px; color: var(--text2); margin: 12px 2px 0; }
+  .hp { position: absolute; left: -9999px; }
+
+  .phones { position: relative; height: 560px; }
+  .phone { position: absolute; width: 230px; border-radius: 34px; border: 8px solid #05070D; box-shadow: 0 30px 60px rgba(0,0,0,.45); overflow: hidden; background: #000; }
+  .phone img { display: block; width: 100%; height: auto; }
+  .p1 { left: 0; top: 60px; transform: rotate(-6deg); }
+  .p2 { left: 50%; top: 0; transform: translateX(-50%); z-index: 2; width: 250px; }
+  .p3 { right: 0; top: 60px; transform: rotate(6deg); }
+
+  section h2 { font-family: Poppins, sans-serif; font-size: clamp(28px, 4vw, 40px); line-height: 1.1; margin: 0 0 10px; letter-spacing: -.5px; }
+  section .sub { color: var(--text2); margin: 0 0 28px; font-size: 17px; max-width: 640px; }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 22px; padding: 22px; }
+  .dot { width: 46px; height: 46px; border-radius: 14px; display: grid; place-items: center; font-size: 24px; margin-bottom: 14px; }
+  .card h3 { margin: 0 0 6px; font-size: 19px; }
+  .card p { margin: 0; color: var(--text2); font-size: 15px; }
+  .band { padding: 70px 0; border-top: 1px solid var(--line); }
+
+  .science { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .science .card b { color: var(--sun); }
+  .cta { text-align: center; }
+  .cta form { margin: 0 auto; text-align: left; }
+  footer { border-top: 1px solid var(--line); padding: 28px 0 40px; color: var(--text2); font-size: 14px; display: flex; gap: 18px; flex-wrap: wrap; }
+
+  @media (max-width: 860px) {
+    .hero { grid-template-columns: 1fr; padding-top: 20px; gap: 30px; }
+    .phones { height: 430px; max-width: 420px; margin: 0 auto; width: 100%; }
+    .phone { width: 170px; border-width: 6px; border-radius: 26px; }
+    .p2 { width: 190px; }
+    .grid, .science { grid-template-columns: 1fr; }
+    .band { padding: 50px 0; }
+  }
+  @media (max-width: 400px) {
+    .phones { height: 360px; }
+    .phone { width: 140px; }
+    .p2 { width: 158px; }
+    button { width: 100%; }
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <img src="img/logo.png" alt="">
+      <b>Skillbird</b>
+      <span class="soon">Coming soon to iPhone</span>
+    </header>
+
+    <div class="hero">
+      <div>
+        <h1>Learn any subject.<br><span>The right way.</span></h1>
+        <p class="lead">Courses on school subjects, flashcards that know when you’re about to forget, and test plans built on real learning science. Every lesson has a source you can check.</p>
+        <form action="https://formsubmit.co/skillbirdapp@gmail.com" method="POST" id="join">
+          <label for="email">Get early access, free</label>
+          <div class="row">
+            <input type="email" id="email" name="email" placeholder="you@example.com" required autocomplete="email">
+            <button type="submit">Join the list</button>
+            <select name="level" aria-label="What are you studying?">
+              <option value="">What are you studying? (optional)</option>
+              <option>High school</option>
+              <option>College or university</option>
+              <option>Learning on my own</option>
+              <option>I’m a parent or teacher</option>
+            </select>
+          </div>
+          <input type="hidden" name="_subject" value="New Skillbird early-access signup">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_next" value="https://skillbirdapp.com/thanks.html">
+          <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <p class="fine">One email when Skillbird launches, plus early tester spots. No spam, unsubscribe anytime.</p>
+        </form>
+      </div>
+      <div class="phones" aria-hidden="true">
+        <div class="phone p1"><img src="img/today.jpg" alt=""></div>
+        <div class="phone p2"><img src="img/subjects.jpg" alt=""></div>
+        <div class="phone p3"><img src="img/spacing.jpg" alt=""></div>
+      </div>
+    </div>
+  </div>
+
+  <section class="band">
+    <div class="wrap">
+      <h2>One app for school</h2>
+      <p class="sub">Learn how to learn first, then use it in every class you take.</p>
+      <div class="grid">
+        <div class="card">
+          <div class="dot" style="background:#3a2f12">📚</div>
+          <h3>Real courses</h3>
+          <p>Short lessons on school subjects, with clear labelled diagrams. Start with Neuroscience and Learn How to Learn, both written from real research.</p>
+        </div>
+        <div class="card">
+          <div class="dot" style="background:#122a3f">🃏</div>
+          <h3>Flashcards that time themselves</h3>
+          <p>Turn your notes into cards. Skillbird brings each one back right before you’d forget it, so reviews take minutes, not hours.</p>
+        </div>
+        <div class="card">
+          <div class="dot" style="background:#3a1a18">📅</div>
+          <h3>A plan for every test</h3>
+          <p>Enter your test date and topics. Get a day-by-day plan built on spaced review and self-testing, plus a focus timer.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <h2>Real science, not study hacks</h2>
+      <p class="sub">Rereading and highlighting feel productive but often don’t stick. Skillbird is built on methods that researchers keep finding work.</p>
+      <div class="science">
+        <div class="card"><b>Test yourself.</b> Pulling information out of your memory strengthens it more than reading it again.</div>
+        <div class="card"><b>Space it out.</b> Short reviews spread over days beat one long cram the night before.</div>
+        <div class="card"><b>Sleep on it.</b> Sleep helps your brain hold on to what you learned that day.</div>
+        <div class="card"><b>Mix it up.</b> Mixing problem types feels harder, and tends to work better on the test.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band cta">
+    <div class="wrap">
+      <h2>Be first in line</h2>
+      <p class="sub" style="margin-left:auto;margin-right:auto">Early members get tester access before launch.</p>
+      <form action="https://formsubmit.co/skillbirdapp@gmail.com" method="POST">
+        <div class="row">
+          <input type="email" name="email" placeholder="you@example.com" required autocomplete="email" aria-label="Email">
+          <button type="submit">Join the list</button>
+        </div>
+        <input type="hidden" name="_subject" value="New Skillbird early-access signup">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="https://skillbirdapp.com/thanks.html">
+        <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      </form>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <footer>
+      <span>© 2026 Skillbird</span>
+      <a href="mailto:skillbirdapp@gmail.com">skillbirdapp@gmail.com</a>
+      <a href="https://www.tiktok.com/@skillbirdapp">TikTok</a>
+      <a href="https://www.instagram.com/skillbirdapp">Instagram</a>
+      <a href="https://www.youtube.com/@skillbirdapp">YouTube</a>
+    </footer>
+  </div>
+<script>
+  // Send people to thanks.html on whatever address the page is served from.
+  document.querySelectorAll('input[name="_next"]').forEach(function (el) { el.value = new URL('thanks.html', location.href).href; });
+</script>
+</body>
+</html>
